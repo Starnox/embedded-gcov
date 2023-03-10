@@ -256,6 +256,8 @@ void __gcov_exit(void)
         gcov_unsigned_t *buffer = NULL; // Need buffer to be 32-bit-aligned for type-safe internal usage
         u32 bytesNeeded;
 
+        GCOV_PRINT_STR("this is a test"); GCOV_PRINT_STR("\n");
+
         /* Do pretend conversion to see how many bytes are needed */
         bytesNeeded = gcov_convert_to_gcda(NULL, listptr->info);
 
