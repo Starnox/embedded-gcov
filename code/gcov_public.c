@@ -308,7 +308,7 @@ void __gcov_exit(void)
         (void)GCOV_WRITE_BYTE(file, bf);
         bf = (unsigned char)(bytesNeeded / 65536);
         (void)GCOV_WRITE_BYTE(file, bf);
-        bf = (unsigned char)(bytesNeeded / 255);
+        bf = (unsigned char)(bytesNeeded / 256);
         (void)GCOV_WRITE_BYTE(file, bf);
         bf = (unsigned char)(bytesNeeded);
         (void)GCOV_WRITE_BYTE(file, bf);
