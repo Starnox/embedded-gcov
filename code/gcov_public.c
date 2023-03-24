@@ -331,9 +331,9 @@ void __gcov_exit(void)
 
         /* store the data byte count */
         /* we don't know endianness, so use division for consistent MSB first */
-        gcov_output_buffer[gcov_output_index++] = (unsigned char)(bytesNeeded / 16777216);
-        gcov_output_buffer[gcov_output_index++] = (unsigned char)(bytesNeeded / 65536);
-        gcov_output_buffer[gcov_output_index++] = (unsigned char)(bytesNeeded / 255);
+        gcov_output_buffer[gcov_output_index++] = (unsigned char)(bytesNeeded >> 24);
+        gcov_output_buffer[gcov_output_index++] = (unsigned char)(bytesNeeded >> 16);
+        gcov_output_buffer[gcov_output_index++] = (unsigned char)(bytesNeeded >> 8);
         gcov_output_buffer[gcov_output_index++] = (unsigned char)(bytesNeeded);
 
         /* copy the data */
