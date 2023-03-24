@@ -304,11 +304,11 @@ void __gcov_exit(void)
         
         /* write the data byte count */
         /* we don't know endianness, so use division for consistent MSB first */
-        bf = (unsigned char)(bytesNeeded / 16777216);
+        bf = (unsigned char)(bytesNeeded >> 24);
         (void)GCOV_WRITE_BYTE(file, bf);
-        bf = (unsigned char)(bytesNeeded / 65536);
+        bf = (unsigned char)(bytesNeeded >> 16);
         (void)GCOV_WRITE_BYTE(file, bf);
-        bf = (unsigned char)(bytesNeeded / 256);
+        bf = (unsigned char)(bytesNeeded >> 8);
         (void)GCOV_WRITE_BYTE(file, bf);
         bf = (unsigned char)(bytesNeeded);
         (void)GCOV_WRITE_BYTE(file, bf);
